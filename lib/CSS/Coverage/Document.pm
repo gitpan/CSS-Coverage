@@ -1,6 +1,6 @@
 package CSS::Coverage::Document;
 {
-  $CSS::Coverage::Document::VERSION = '0.01';
+  $CSS::Coverage::Document::VERSION = '0.02';
 }
 use Moose;
 use CSS::Coverage::Deparse;
@@ -36,7 +36,7 @@ sub end_selector {
 
 package CSS::Coverage::DocumentDelegate;
 {
-  $CSS::Coverage::DocumentDelegate::VERSION = '0.01';
+  $CSS::Coverage::DocumentDelegate::VERSION = '0.02';
 }
 use Moose::Role;
 
@@ -44,3 +44,27 @@ requires '_check_selector', '_got_coverage_directive';
 
 1;
 
+__END__
+
+=pod
+
+=head1 NAME
+
+CSS::Coverage::Document
+
+=head1 VERSION
+
+version 0.02
+
+=head1 AUTHOR
+
+Shawn M Moore <code@sartak.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Infinity Interactive, Inc..
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

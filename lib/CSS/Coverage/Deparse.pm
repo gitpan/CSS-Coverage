@@ -1,6 +1,6 @@
 package CSS::Coverage::Deparse;
 {
-  $CSS::Coverage::Deparse::VERSION = '0.01';
+  $CSS::Coverage::Deparse::VERSION = '0.02';
 }
 use Moose;
 use CSS::SAC::Selector  qw(:constants);
@@ -220,3 +220,27 @@ sub stringify_condition {
 
 1;
 
+__END__
+
+=pod
+
+=head1 NAME
+
+CSS::Coverage::Deparse
+
+=head1 VERSION
+
+version 0.02
+
+=head1 AUTHOR
+
+Shawn M Moore <code@sartak.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Infinity Interactive, Inc..
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

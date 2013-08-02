@@ -1,6 +1,6 @@
 package CSS::Coverage;
 {
-  $CSS::Coverage::VERSION = '0.01';
+  $CSS::Coverage::VERSION = '0.02';
 }
 use Moose;
 use CSS::SAC;
@@ -134,13 +134,15 @@ __PACKAGE__->meta->make_immutable;
 
 __END__
 
+=pod
+
 =head1 NAME
 
-CSS::Coverage - Confirm that your CSS matches your DOM
+CSS::Coverage
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -162,22 +164,52 @@ version 0.01
 
 =head1 DESCRIPTION
 
-It is very tedious to manually confirm whether a particular CSS
-selector matches any of your documents. There are browser-based
-tools, like one that ships in Chrome, that do this for you. However,
-they do not presently check multiple pages. Browser tools are also
-not great for running in a continuous integration environment.
+Every CSS rule in your stylesheets have a cost. Browser must parse
+them and apply them to your document. Your maintainers have to understand what each rule is doing. If a CSS rule doesn't appear to match any part of the document, maintainers wonder "is that intentional, or just a typo?"
 
-This module provides a good first stab at paring down the list of
-rules to manually check.
+So it is useful excise unused CSS rules. Unfortunately it is very
+tedious to manually confirm whether a particular CSS selector matches
+any of your documents. There are browser-based tools, like one that
+ships in Chrome, that do this for you. However, they do not presently
+check multiple pages. Browser tools are also not great for running
+in a continuous integration environment.
 
-If you know that a particular rule only matches in the presence of
-a dynamically-modified DOM, via JavaScript, you can add a comment
-like this either inside or before that CSS rule:
+This module and its associated C<css-coverage> script provide a
+good first stab at paring down the list of rules to manually check.
+
+=head2 JavaScript
+
+Modern HTML pages are living, breathing, dynamic documents.
+CSS::Coverage can only I<statically> check whether a CSS selector
+matches an HTML document. So if you manipulate the DOM in JavaScript,
+CSS::Coverage may report false positives. There's certainly a point
+where CSS::Coverage provides diminishing returns if your page is
+very JavaScript-heavy. But for static, or mostly-static, pages,
+CSS::Coverage should be useful.
+
+If you know that a particular rule only matches when JavaScript
+runs, you can add a comment like this either inside or before that
+CSS rule:
+
+    a.clicked {
+        /* coverage: dynamic */
+        text-decoration: line-through;
+    }
 
     /* coverage: dynamic */
+    a.clicked {
+        text-decoration: line-through;
+    }
 
-This will cause CSS::Coverage to skip that rule.
+Either directive will cause CSS::Coverage to skip that rule entirely.
+
+=head1 NAME
+
+CSS::Coverage - Confirm that your CSS matches your DOM
+
+=head1 VERSION
+
+version 0.02
 
 =head1 ATTRIBUTES
 
@@ -194,5 +226,16 @@ A list of HTML documents. For each document, strings are treated as filenames; s
 =head2 check
 
 Runs a coverage check of the given CSS against the given documents. Returns a L<CSS::Coverage::Report> object.
+
+=head1 AUTHOR
+
+Shawn M Moore <code@sartak.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Infinity Interactive, Inc..
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
