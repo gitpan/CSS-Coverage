@@ -15,4 +15,5 @@ lib/CSS/Coverage/XPath.pm
 t/001-basic.t
 t/002-real.t
 t/003-comment.t
+t/004-pseudo.t
 t/release-pod-syntax.t

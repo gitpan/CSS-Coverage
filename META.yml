@@ -22,4 +22,4 @@ requires:
 resources:
   homepage: https://github.com/sartak/CSS-Coverage
   repository: https://github.com/sartak/CSS-Coverage.git
-version: 0.03
+version: 0.04

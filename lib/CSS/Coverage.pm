@@ -1,6 +1,6 @@
 package CSS::Coverage;
 {
-  $CSS::Coverage::VERSION = '0.03';
+  $CSS::Coverage::VERSION = '0.04';
 }
 use Moose;
 use CSS::SAC;
@@ -142,7 +142,7 @@ CSS::Coverage
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -209,7 +209,7 @@ CSS::Coverage - Confirm that your CSS matches your DOM
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 ATTRIBUTES
 

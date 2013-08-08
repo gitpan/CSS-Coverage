@@ -1,6 +1,6 @@
 package CSS::Coverage::XPath;
 {
-  $CSS::Coverage::XPath::VERSION = '0.03';
+  $CSS::Coverage::XPath::VERSION = '0.04';
 }
 use strict;
 use warnings;
@@ -9,6 +9,9 @@ use base 'HTML::Selector::XPath';
 our %PASSTHRU = map { $_ => 1 } qw/
     hover
     link
+    visited
+    active
+    focus
 /;
 
 sub parse_pseudo {
@@ -33,7 +36,7 @@ CSS::Coverage::XPath
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 AUTHOR
 

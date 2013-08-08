@@ -1,6 +1,6 @@
 package CSS::Coverage::Report;
 {
-  $CSS::Coverage::Report::VERSION = '0.03';
+  $CSS::Coverage::Report::VERSION = '0.04';
 }
 use Moose;
 
@@ -26,7 +26,7 @@ CSS::Coverage::Report
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 NAME
 
@@ -34,7 +34,7 @@ CSS::Coverage::Report
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 METHODS
 
