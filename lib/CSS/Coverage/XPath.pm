@@ -1,15 +1,20 @@
 package CSS::Coverage::XPath;
 {
-  $CSS::Coverage::XPath::VERSION = '0.02';
+  $CSS::Coverage::XPath::VERSION = '0.03';
 }
 use strict;
 use warnings;
 use base 'HTML::Selector::XPath';
 
+our %PASSTHRU = map { $_ => 1 } qw/
+    hover
+    link
+/;
+
 sub parse_pseudo {
     my ($self, $pseudo) = @_;
 
-    if ($pseudo eq 'hover') {
+    if ($PASSTHRU{$pseudo}) {
         return "[true()]";
     }
 
@@ -28,7 +33,7 @@ CSS::Coverage::XPath
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 AUTHOR
 

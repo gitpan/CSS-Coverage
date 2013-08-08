@@ -1,6 +1,6 @@
 package CSS::Coverage::Document;
 {
-  $CSS::Coverage::Document::VERSION = '0.02';
+  $CSS::Coverage::Document::VERSION = '0.03';
 }
 use Moose;
 use CSS::Coverage::Deparse;
@@ -36,7 +36,7 @@ sub end_selector {
 
 package CSS::Coverage::DocumentDelegate;
 {
-  $CSS::Coverage::DocumentDelegate::VERSION = '0.02';
+  $CSS::Coverage::DocumentDelegate::VERSION = '0.03';
 }
 use Moose::Role;
 
@@ -54,7 +54,7 @@ CSS::Coverage::Document
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 AUTHOR
 
